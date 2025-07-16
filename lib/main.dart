@@ -259,16 +259,39 @@ class _LoginScreenState extends State<LoginScreen> {
                             onPressed: () {
                               log.info('Login tapped');
                             },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF1E2D59),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(14),
-                              ),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  WidgetStateProperty.resolveWith<Color>((
+                                    states,
+                                  ) {
+                                    if (states.contains(WidgetState.pressed)) {
+                                      return Color(0xFF2A355F);
+                                    }
+                                    return const Color(
+                                      0xFF1E2D59,
+                                    ); // Default background
+                                  }),
+                              foregroundColor:
+                                  WidgetStateProperty.resolveWith<Color>((
+                                    states,
+                                  ) {
+                                    if (states.contains(WidgetState.pressed)) {
+                                      return Colors.black; // Pressed text color
+                                    }
+                                    return Colors.white; // Default text color
+                                  }),
+                              shape:
+                                  WidgetStateProperty.all<
+                                    RoundedRectangleBorder
+                                  >(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(14),
+                                    ),
+                                  ),
                             ),
                             child: const Text(
                               'Login',
                               style: TextStyle(
-                                color: Colors.white,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
