@@ -49,7 +49,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 120,
                 width: 120,
               ),
+
               const SizedBox(height: 6),
+
               const Text(
                 "Stream Nation",
                 style: TextStyle(
@@ -66,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.grey,
                 ),
               ),
+
               const SizedBox(height: 24),
 
               /// White Box Container
@@ -96,14 +99,22 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+
                     const SizedBox(height: 6),
+
                     ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 300),
                       child: TextField(
+                        style: TextStyle(fontWeight: FontWeight.bold),
                         controller: emailController,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           hintText: 'johndoe@gmail.com',
+
+                          hintStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey,
+                          ),
                           filled: true,
                           fillColor: Colors.grey[50],
                           contentPadding: const EdgeInsets.symmetric(
@@ -113,10 +124,26 @@ class _LoginScreenState extends State<LoginScreen> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide(
+                              color: Colors.grey.shade300,
+                              width: 1,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide(
+                              color: Colors.grey.shade300,
+                              width: 1,
+                            ),
+                          ),
                         ),
                       ),
                     ),
+
                     const SizedBox(height: 16),
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -142,17 +169,24 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ],
                     ),
+
                     const SizedBox(height: 6),
+
                     Center(
                       child: ConstrainedBox(
                         constraints: const BoxConstraints(maxWidth: 300),
                         child: TextField(
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                           controller: passwordController,
                           obscureText: _obscurePassword,
                           decoration: InputDecoration(
                             hintText: _obscurePassword
                                 ? '••••••••'
                                 : 'Password',
+                            hintStyle: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey,
+                            ),
                             filled: true,
                             fillColor: Colors.grey[50],
                             contentPadding: const EdgeInsets.symmetric(
@@ -162,7 +196,41 @@ class _LoginScreenState extends State<LoginScreen> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(
+                                color: Colors.grey.shade300,
+                                width: 1,
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: BorderSide(
+                                color: Colors.grey.shade300,
+                                width: 1,
+                              ),
+                            ),
+
                             suffixIcon: IconButton(
+                              style: ButtonStyle(
+                                overlayColor: WidgetStateProperty.all(
+                                  Colors.transparent,
+                                ), // Removes ripple
+                                iconColor: WidgetStateProperty.resolveWith((
+                                  states,
+                                ) {
+                                  if (states.contains(WidgetState.pressed)) {
+                                    return Colors
+                                        .grey[600]!; // Slightly lighter black when pressed
+                                  } else if (states.contains(
+                                    WidgetState.hovered,
+                                  )) {
+                                    return Colors
+                                        .grey[600]!; // Even more subtle on hover
+                                  }
+                                  return Colors.black; // Default color
+                                }),
+                              ),
                               icon: Icon(
                                 _obscurePassword
                                     ? Icons.visibility_off
@@ -178,7 +246,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
+
                     const SizedBox(height: 24),
+
                     Center(
                       child: ConstrainedBox(
                         constraints: const BoxConstraints(maxWidth: 320),
@@ -213,7 +283,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
               const SizedBox(height: 20),
 
-              /// Moved Outside the Container
+              /// Outside the Container
               Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -222,7 +292,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       'No account yet?',
                       style: TextStyle(color: Colors.grey, fontSize: 14),
                     ),
+
                     const SizedBox(width: 5),
+
                     GestureDetector(
                       onTap: () {
                         log.info('Create One tapped');
@@ -239,7 +311,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
               ),
+
               const SizedBox(height: 16),
+
               Row(
                 children: [
                   const Expanded(
