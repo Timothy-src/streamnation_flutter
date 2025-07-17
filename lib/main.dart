@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 final Logger log = Logger('MyApp');
 
@@ -163,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: TextStyle(
                               color: Color(0xFF1E2D59),
                               fontWeight: FontWeight.bold,
-                              fontSize: 11,
+                              fontSize: 12,
                             ),
                           ),
                         ),
@@ -265,20 +266,18 @@ class _LoginScreenState extends State<LoginScreen> {
                                     states,
                                   ) {
                                     if (states.contains(WidgetState.pressed)) {
-                                      return Color(0xFF2A355F);
+                                      return Colors.grey[300]!;
                                     }
-                                    return const Color(
-                                      0xFF1E2D59,
-                                    ); // Default background
+                                    return const Color(0xFF1E2D59);
                                   }),
                               foregroundColor:
                                   WidgetStateProperty.resolveWith<Color>((
                                     states,
                                   ) {
                                     if (states.contains(WidgetState.pressed)) {
-                                      return Colors.black; // Pressed text color
+                                      return Colors.white;
                                     }
-                                    return Colors.white; // Default text color
+                                    return Colors.white;
                                   }),
                               shape:
                                   WidgetStateProperty.all<
@@ -292,7 +291,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: const Text(
                               'Login',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -335,7 +334,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
 
-              const SizedBox(height: 16),
+              const SizedBox(height: 3),
 
               Row(
                 children: [
@@ -359,6 +358,129 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Colors.grey,
                       thickness: 1,
                       indent: 10,
+                    ),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 20),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 250),
+                    child: SizedBox(
+                      width: 180,
+                      height: 70,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          log.info('Google Sign in tapped');
+                        },
+                        style: ButtonStyle(
+                          backgroundColor:
+                              WidgetStateProperty.resolveWith<Color>((states) {
+                                if (states.contains(WidgetState.pressed)) {
+                                  return Colors.grey[100]!;
+                                }
+                                return Colors.white;
+                              }),
+                          foregroundColor:
+                              WidgetStateProperty.resolveWith<Color>((states) {
+                                if (states.contains(WidgetState.pressed)) {
+                                  return const Color(0xFF4F5B87);
+                                }
+                                return const Color(0xFF1E2D59);
+                              }),
+                          shape:
+                              WidgetStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              ),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            FaIcon(
+                              FontAwesomeIcons.google,
+                              color: Color(0xFF1E2D59),
+                              size: 23,
+                            ),
+
+                            SizedBox(width: 8),
+
+                            Flexible(
+                              child: Text(
+                                'Google',
+                                style: TextStyle(
+                                  color: Color(0xFF1E2D59),
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 10),
+
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 190),
+                    child: SizedBox(
+                      width: 190,
+                      height: 60,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          log.info('Apple Sign in tapped');
+                        },
+                        style: ButtonStyle(
+                          backgroundColor:
+                              WidgetStateProperty.resolveWith<Color>((states) {
+                                if (states.contains(WidgetState.pressed)) {
+                                  return const Color(0xFF1D1D1D);
+                                }
+                                return Colors.black;
+                              }),
+                          foregroundColor:
+                              WidgetStateProperty.resolveWith<Color>((states) {
+                                if (states.contains(WidgetState.pressed)) {
+                                  return Colors.white;
+                                }
+                                return Colors.white;
+                              }),
+                          shape:
+                              WidgetStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(11),
+                                ),
+                              ),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.apple, color: Colors.white, size: 16),
+
+                            SizedBox(width: 4),
+
+                            Flexible(
+                              child: Text(
+                                'Sign in with Apple',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ],
