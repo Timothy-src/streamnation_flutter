@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'signup.dart'; // make sure the path is correct
 
 final Logger log = Logger('MyApp');
 
@@ -258,7 +259,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 70,
                           child: ElevatedButton(
                             onPressed: () {
-                              log.info('Login tapped');
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SecondScreen(),
+                                ),
+                              );
                             },
                             style: ButtonStyle(
                               backgroundColor:
@@ -464,7 +470,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.apple, color: Colors.white, size: 16),
+                            Icon(Icons.apple, color: Colors.white, size: 18),
 
                             SizedBox(width: 4),
 
