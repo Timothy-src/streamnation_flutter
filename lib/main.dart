@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'signup.dart'; // make sure the path is correct
+import 'create_acc.dart';
 
 final Logger log = Logger('MyApp');
 
@@ -14,11 +14,7 @@ class LoginApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Simple Login',
-      home: LoginScreen(),
-      debugShowCheckedModeBanner: false,
-    );
+    return const MaterialApp();
   }
 }
 
@@ -156,17 +152,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            log.info('Forgot password tapped');
-                          },
-                          child: const Text(
-                            'Forgot password?',
-                            style: TextStyle(
-                              color: Color(0xFF1E2D59),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                            ),
+
+                        const Text(
+                          'Forgot password?',
+                          style: TextStyle(
+                            color: Color(0xFF1E2D59),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
                           ),
                         ),
                       ],
@@ -259,12 +251,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 70,
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const SecondScreen(),
-                                ),
-                              );
+                              log.info('Login tapped');
                             },
                             style: ButtonStyle(
                               backgroundColor:
@@ -325,7 +312,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     GestureDetector(
                       onTap: () {
-                        log.info('Create One tapped');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUpScreen(),
+                          ),
+                        );
                       },
                       child: const Text(
                         'Create One',
@@ -378,7 +370,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     constraints: const BoxConstraints(maxWidth: 250),
                     child: SizedBox(
                       width: 180,
-                      height: 70,
+                      height: 65,
                       child: ElevatedButton(
                         onPressed: () {
                           log.info('Google Sign in tapped');
@@ -436,10 +428,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(width: 10),
 
                   ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 190),
+                    constraints: const BoxConstraints(maxWidth: 195),
                     child: SizedBox(
-                      width: 190,
-                      height: 60,
+                      width: 192,
+                      height: 58,
                       child: ElevatedButton(
                         onPressed: () {
                           log.info('Apple Sign in tapped');
@@ -470,7 +462,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.apple, color: Colors.white, size: 18),
+                            Icon(Icons.apple, color: Colors.white, size: 20),
 
                             SizedBox(width: 4),
 
