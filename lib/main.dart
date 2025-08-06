@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'create_acc.dart';
+import 'screens/signup_screen.dart';
 
 final Logger log = Logger('MyApp');
 
@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Color.fromARGB(255, 231, 240, 251),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -52,9 +52,9 @@ class _LoginScreenState extends State<LoginScreen> {
               _buildContainer(),
               const SizedBox(height: 20),
               _buildCreateAccountText(),
-              const SizedBox(height: 3),
+              const SizedBox(height: 6),
               _buildDivider(),
-              const SizedBox(height: 20),
+              const SizedBox(height: 26),
               _buildSocialButtons(),
             ],
           ),
@@ -145,17 +145,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: Colors.grey.shade300,
-                      width: 1,
-                    ),
+                    borderSide: BorderSide(color: Colors.grey[400]!, width: 1),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: Colors.grey.shade300,
-                      width: 1,
-                    ),
+                    borderSide: BorderSide(color: Colors.grey[400]!, width: 1),
                   ),
                 ),
               ),
@@ -202,17 +196,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: Colors.grey.shade300,
-                      width: 1,
-                    ),
+                    borderSide: BorderSide(color: Colors.grey[400]!, width: 1),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: Colors.grey.shade300,
-                      width: 1,
-                    ),
+                    borderSide: BorderSide(color: Colors.grey[400]!, width: 1),
                   ),
                   suffixIcon: IconButton(
                     style: ButtonStyle(
@@ -315,7 +303,7 @@ class _LoginScreenState extends State<LoginScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
-          child: Divider(color: Colors.grey, thickness: 1, endIndent: 10),
+          child: Divider(color: Colors.grey, thickness: 1, endIndent: 8),
         ),
         Text(
           "or login with",
@@ -325,8 +313,9 @@ class _LoginScreenState extends State<LoginScreen> {
             fontWeight: FontWeight.w500,
           ),
         ),
+        SizedBox(width: 8),
         Expanded(
-          child: Divider(color: Colors.grey, thickness: 1, endIndent: 10),
+          child: Divider(color: Colors.grey, thickness: 1, endIndent: 8),
         ),
       ],
     );

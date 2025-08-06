@@ -1,4 +1,3 @@
-// lib/second_screen.dart
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -19,7 +18,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Color.fromARGB(255, 231, 240, 251),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         iconTheme: const IconThemeData(color: Color(0xFF1E2D59)),
@@ -49,7 +48,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               _buildPasswordField(),
               const SizedBox(height: 24),
               _buildConfirmPassword(),
-              const SizedBox(height: 28),
+              const SizedBox(height: 30),
               _buildSignUpButton(),
             ],
           ),
@@ -69,6 +68,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        SizedBox(height: 6),
         TextFormField(
           controller: _emailController,
           decoration: InputDecoration(
@@ -85,6 +85,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               borderRadius: BorderRadius.circular(12),
               borderSide: BorderSide(color: Colors.grey[400]!),
             ),
+            filled: true,
+            fillColor: Colors.white,
           ),
         ),
       ],
@@ -102,6 +104,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        SizedBox(height: 6),
         TextFormField(
           controller: _passwordController,
           obscureText: !_isPasswordVisible,
@@ -130,6 +133,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               borderRadius: BorderRadius.circular(12),
               borderSide: BorderSide(color: Colors.grey[400]!),
             ),
+            filled: true,
+            fillColor: Colors.white,
           ),
         ),
       ],
@@ -147,6 +152,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        SizedBox(height: 6),
         TextFormField(
           controller: _confirmpasswordController,
           decoration: InputDecoration(
@@ -176,6 +182,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               borderRadius: BorderRadius.circular(12),
               borderSide: BorderSide(color: Colors.grey[400]!),
             ),
+            filled: true,
+            fillColor: Colors.white,
           ),
         ),
       ],
@@ -193,7 +201,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
-          padding: EdgeInsets.symmetric(vertical: 22),
+          padding: EdgeInsets.symmetric(vertical: 20),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadiusGeometry.circular(12),
           ),
