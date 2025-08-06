@@ -15,7 +15,6 @@ class LoginApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Simple Login',
       home: LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
@@ -57,127 +56,6 @@ class _LoginScreenState extends State<LoginScreen> {
               _buildDivider(),
               const SizedBox(height: 20),
               _buildSocialButtons(),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 250),
-                    child: SizedBox(
-                      width: 180,
-                      height: 65,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          log.info('Google Sign in tapped');
-                        },
-                        style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStateProperty.resolveWith<Color>((states) {
-                                if (states.contains(WidgetState.pressed)) {
-                                  return Colors.grey[100]!;
-                                }
-                                return Colors.white;
-                              }),
-                          foregroundColor:
-                              WidgetStateProperty.resolveWith<Color>((states) {
-                                if (states.contains(WidgetState.pressed)) {
-                                  return const Color(0xFF4F5B87);
-                                }
-                                return const Color(0xFF1E2D59);
-                              }),
-                          shape:
-                              WidgetStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                              ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FaIcon(
-                              FontAwesomeIcons.google,
-                              color: Color(0xFF1E2D59),
-                              size: 23,
-                            ),
-
-                            SizedBox(width: 8),
-
-                            Flexible(
-                              child: Text(
-                                'Google',
-                                style: TextStyle(
-                                  color: Color(0xFF1E2D59),
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  const SizedBox(width: 10),
-
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 195),
-                    child: SizedBox(
-                      width: 192,
-                      height: 58,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          log.info('Apple Sign in tapped');
-                        },
-                        style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStateProperty.resolveWith<Color>((states) {
-                                if (states.contains(WidgetState.pressed)) {
-                                  return const Color(0xFF1D1D1D);
-                                }
-                                return Colors.black;
-                              }),
-                          foregroundColor:
-                              WidgetStateProperty.resolveWith<Color>((states) {
-                                if (states.contains(WidgetState.pressed)) {
-                                  return Colors.white;
-                                }
-                                return Colors.white;
-                              }),
-                          shape:
-                              WidgetStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(11),
-                                ),
-                              ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.apple, color: Colors.white, size: 20),
-
-                            SizedBox(width: 4),
-
-                            Flexible(
-                              child: Text(
-                                'Sign in with Apple',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ],
           ),
         ),
@@ -455,6 +333,123 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Widget _buildSocialButtons() {
-    return Row();
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 250),
+          child: SizedBox(
+            width: 180,
+            height: 65,
+            child: ElevatedButton(
+              onPressed: () {
+                log.info('Google Sign in tapped');
+              },
+              style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.resolveWith<Color>((
+                  states,
+                ) {
+                  if (states.contains(WidgetState.pressed)) {
+                    return Colors.grey[100]!;
+                  }
+                  return Colors.white;
+                }),
+                foregroundColor: WidgetStateProperty.resolveWith<Color>((
+                  states,
+                ) {
+                  if (states.contains(WidgetState.pressed)) {
+                    return const Color(0xFF4F5B87);
+                  }
+                  return const Color(0xFF1E2D59);
+                }),
+                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FaIcon(
+                    FontAwesomeIcons.google,
+                    color: Color(0xFF1E2D59),
+                    size: 23,
+                  ),
+
+                  SizedBox(width: 8),
+
+                  Flexible(
+                    child: Text(
+                      'Google',
+                      style: TextStyle(
+                        color: Color(0xFF1E2D59),
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        SizedBox(width: 10),
+        ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 195),
+          child: SizedBox(
+            width: 192,
+            height: 58,
+            child: ElevatedButton(
+              onPressed: () {
+                log.info('Apple Sign in tapped');
+              },
+              style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.resolveWith<Color>((
+                  states,
+                ) {
+                  if (states.contains(WidgetState.pressed)) {
+                    return const Color(0xFF1D1D1D);
+                  }
+                  return Colors.black;
+                }),
+                foregroundColor: WidgetStateProperty.resolveWith<Color>((
+                  states,
+                ) {
+                  if (states.contains(WidgetState.pressed)) {
+                    return Colors.white;
+                  }
+                  return Colors.white;
+                }),
+                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(11),
+                  ),
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.apple, color: Colors.white, size: 20),
+                  SizedBox(width: 4),
+                  Flexible(
+                    child: Text(
+                      'Sign in with Apple',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
