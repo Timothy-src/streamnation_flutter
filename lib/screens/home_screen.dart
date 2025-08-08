@@ -124,10 +124,9 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 20),
               Row(
                 children: [
-                  // First container
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(16),
+                      padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey[300]!, width: 1),
                         borderRadius: BorderRadius.circular(16),
@@ -146,19 +145,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                   color: Color(0xFF1E2D59),
                                 ),
                               ),
-                              SizedBox(width: 15),
+                              SizedBox(width: 9),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Total",
+                                    "TOTAL",
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.black,
                                     ),
                                   ),
                                   Text(
-                                    "Orders",
+                                    "ORDERS",
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.black,
@@ -168,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 12), // space before next content
+                          SizedBox(height: 12),
                           Text(
                             "0",
                             style: TextStyle(
@@ -227,19 +226,55 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(width: 18),
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(16),
+                      padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey[300]!, width: 1),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Column(
-                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CircleAvatar(
-                            radius: 23,
-                            backgroundColor: Colors.grey[300]!,
-                            child: FaIcon(
-                              FontAwesomeIcons.coins,
+                          // First row: Icon + texts
+                          Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 23,
+                                backgroundColor: Colors.grey[300]!,
+                                child: FaIcon(
+                                  FontAwesomeIcons.coins,
+                                  color: Color(0xFF1E2D59),
+                                ),
+                              ),
+                              SizedBox(width: 9),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "TOTAL",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  Text(
+                                    "PURCHASE",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+
+                          SizedBox(height: 62), // Space between row and price
+                          // Price aligned left
+                          Text(
+                            "₱0.00",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 23,
                               color: Color(0xFF1E2D59),
                             ),
                           ),
