@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(
                       color: Color(0xFF1E2D59),
                       fontWeight: FontWeight.bold,
-                      fontSize: 24,
+                      fontSize: 22,
                     ),
                   ),
                   Spacer(),
@@ -69,18 +69,22 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
+        child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [_buildHeader()],
+            children: [
+              _buildPersonalSales(),
+              const SizedBox(height: 15),
+              _buildGroupSales(),
+            ],
           ),
         ),
       ),
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildPersonalSales() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -138,11 +142,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           Row(
                             children: [
                               CircleAvatar(
-                                radius: 23,
+                                radius: 22,
                                 backgroundColor: Colors.grey[300]!,
                                 child: FaIcon(
                                   FontAwesomeIcons.boxArchive,
                                   color: Color(0xFF1E2D59),
+                                  size: 22,
                                 ),
                               ),
                               SizedBox(width: 9),
@@ -154,6 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.black,
+                                      fontSize: 12,
                                     ),
                                   ),
                                   Text(
@@ -161,6 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.black,
+                                      fontSize: 12,
                                     ),
                                   ),
                                 ],
@@ -238,11 +245,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           Row(
                             children: [
                               CircleAvatar(
-                                radius: 23,
+                                radius: 22,
                                 backgroundColor: Colors.grey[300]!,
                                 child: FaIcon(
                                   FontAwesomeIcons.coins,
                                   color: Color(0xFF1E2D59),
+                                  size: 22,
                                 ),
                               ),
                               SizedBox(width: 9),
@@ -254,6 +262,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.black,
+                                      fontSize: 12,
                                     ),
                                   ),
                                   Text(
@@ -261,6 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.black,
+                                      fontSize: 12,
                                     ),
                                   ),
                                 ],
@@ -284,6 +294,134 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildGroupSales() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 500,
+          height: 380,
+          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Group Sales",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1E2D59),
+                          fontSize: 18,
+                        ),
+                      ),
+                      SizedBox(height: 1),
+                      Text(
+                        "AUGUST 2025",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          color: Colors.grey[500]!,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    "₱11,904.00",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF1E2D59),
+                      fontSize: 23,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+              _buildProgressBar(),
+              SizedBox(height: 20),
+              _buildPlaceholderDropDown(),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildProgressBar() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SizedBox(
+          height: 35,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Positioned.fill(
+                child: LinearProgressIndicator(
+                  borderRadius: BorderRadius.circular(13),
+                  value: 1.0,
+                  backgroundColor: Colors.grey,
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF1E2D59)),
+                ),
+              ),
+              Text(
+                "100%",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPlaceholderDropDown() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Container(
+          height: 45,
+          padding: EdgeInsets.only(left: 17, right: 17),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.grey[300]!, width: 1),
+          ),
+          child: Row(
+            children: [
+              FaIcon(
+                FontAwesomeIcons.trophy,
+                color: Color(0xFF1E2D59),
+                size: 20,
+              ),
+              SizedBox(width: 10),
+              Text(
+                "TOP PERFORMERS",
+                style: TextStyle(
+                  color: Color(0xFF1E2D59),
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Spacer(),
+              FaIcon(FontAwesomeIcons.arrowUpFromBracket),
             ],
           ),
         ),
