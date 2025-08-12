@@ -89,8 +89,9 @@ class _HomeScreenState extends State<HomeScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
+          margin: EdgeInsets.only(top: 0),
           width: 500,
-          height: 275,
+          height: 255,
           padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -307,7 +308,7 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         Container(
           width: 500,
-          height: 380,
+          height: 400,
           padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -346,15 +347,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       color: Color(0xFF1E2D59),
-                      fontSize: 23,
+                      fontSize: 21,
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 18),
               _buildProgressBar(),
               SizedBox(height: 20),
               _buildPlaceholderDropDown(),
+              SizedBox(height: 11),
+              _buildTopPerformer1(),
+              SizedBox(height: 11),
+              _buildTopPerformer2(),
+              SizedBox(height: 16),
+              _buildLeaderboardButton(),
             ],
           ),
         ),
@@ -367,7 +374,7 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SizedBox(
-          height: 35,
+          height: 34,
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -375,7 +382,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: LinearProgressIndicator(
                   borderRadius: BorderRadius.circular(13),
                   value: 1.0,
-                  backgroundColor: Colors.grey,
+                  backgroundColor: Colors.grey[200],
                   valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF1E2D59)),
                 ),
               ),
@@ -401,7 +408,7 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 45,
           padding: EdgeInsets.only(left: 17, right: 17),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(14),
             border: Border.all(color: Colors.grey[300]!, width: 1),
           ),
           child: Row(
@@ -421,8 +428,153 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Spacer(),
-              FaIcon(FontAwesomeIcons.arrowUpFromBracket),
+              Icon(Icons.keyboard_arrow_up),
             ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildTopPerformer1() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Container(
+          height: 50,
+          padding: EdgeInsets.only(left: 23, right: 17),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: Colors.grey[200]!,
+          ),
+          child: Row(
+            children: [
+              CircleAvatar(radius: 6, backgroundColor: Color(0xFF1E2D59)),
+              SizedBox(width: 12),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(padding: EdgeInsetsGeometry.only(top: 7)),
+                  Text(
+                    "Tester FD02",
+                    style: TextStyle(
+                      color: Color(0xFF1E2D59),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  Text(
+                    "100% of total group sales",
+                    style: TextStyle(
+                      color: Colors.grey[500]!,
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Spacer(),
+              Text(
+                "₱11,904.00",
+                style: TextStyle(
+                  color: Color(0xFF1E2D59),
+                  fontWeight: FontWeight.w700,
+                  fontSize: 12,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildTopPerformer2() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          height: 50,
+          padding: EdgeInsets.only(left: 23, right: 17),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: Colors.grey[200]!,
+          ),
+          child: Row(
+            children: [
+              CircleAvatar(radius: 6, backgroundColor: Color(0xFF1E2D59)),
+              SizedBox(width: 12),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(padding: EdgeInsetsGeometry.only(top: 7)),
+                  Text(
+                    "Tester FD1",
+                    style: TextStyle(
+                      color: Color(0xFF1E2D59),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  Text(
+                    "0% of total group sales",
+                    style: TextStyle(
+                      color: Colors.grey[500]!,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Spacer(),
+              Text(
+                "₱0.00",
+                style: TextStyle(
+                  color: Color(0xFF1E2D59),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildLeaderboardButton() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Container(
+          height: 49,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: Color(0xFF1E2D59),
+          ),
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.transparent,
+              shadowColor: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadiusGeometry.circular(16),
+              ),
+              elevation: 0,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FaIcon(FontAwesomeIcons.trophy, color: Colors.white),
+                SizedBox(width: 10),
+                Text(
+                  "SEE LEADERBOARD",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],
