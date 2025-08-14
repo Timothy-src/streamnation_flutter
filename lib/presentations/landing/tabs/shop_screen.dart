@@ -50,7 +50,7 @@ class _ShopScreenState extends State<ShopScreen> {
                       Text(
                         "Manage your shop and track orders",
                         style: TextStyle(
-                          color: Colors.grey[500],
+                          color: Colors.grey[600],
                           fontWeight: FontWeight.w700,
                           fontSize: 16,
                         ),
@@ -72,7 +72,7 @@ class _ShopScreenState extends State<ShopScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               _buildContainers(),
-              const SizedBox(height: 22),
+              const SizedBox(height: 32),
               _buildFeatureText(),
               const SizedBox(height: 16),
               _buildProducts(),
@@ -229,8 +229,8 @@ class _ShopScreenState extends State<ShopScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Feature Products",
-          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+          "Featured Products",
+          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 19),
         ),
       ],
     );
@@ -241,10 +241,40 @@ class _ShopScreenState extends State<ShopScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          height: 170,
-          width: 150,
+          height: 320,
+          width: 180,
           padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(color: Colors.white),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                offset: Offset(0, 3),
+                spreadRadius: 0,
+                blurRadius: 6,
+              ),
+            ],
+          ),
+        ),
+        Spacer(),
+
+        Container(
+          height: 320,
+          width: 180,
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0, 3),
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 6,
+                spreadRadius: 0,
+              ),
+            ],
+          ),
         ),
       ],
     );
