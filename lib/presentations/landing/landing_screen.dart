@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:streamnation_flutter/screens/home_screen.dart';
+import 'package:streamnation_flutter/presentations/landing/tabs/home_screen.dart';
+import 'package:streamnation_flutter/presentations/landing/tabs/shop_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -13,7 +14,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   final List<Widget> _screens = [
     HomeScreen(),
-    Center(child: Text("Shop page coming soon")),
+    ShopScreen(),
     Center(child: Text("Wallet page coming soon")),
     Center(child: Text("Recruits page coming soon")),
     Center(child: Text("Marketing page coming soon")),

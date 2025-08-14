@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 231, 240, 251),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(63),
+        preferredSize: Size.fromHeight(60),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
