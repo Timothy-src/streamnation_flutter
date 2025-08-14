@@ -12,7 +12,7 @@ class _WalletScreenState extends State<WalletScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 231, 240, 251),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -24,6 +24,8 @@ class _WalletScreenState extends State<WalletScreen> {
                 _buildAvailableBalance(),
                 SizedBox(height: 28),
                 _buildTransactionText(),
+                const SizedBox(height: 8),
+                _buildTransaction(),
               ],
             ),
           ),
@@ -181,20 +183,69 @@ class _WalletScreenState extends State<WalletScreen> {
   }
 
   Widget _buildTransactionText() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("Recent Transactions"),
-        Spacer(),
-        Container(
-          height: 40,
-          width: 80,
-          padding: EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18),
-            color: Color.fromARGB(255, 231, 240, 251),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "Recent Transactions",
+            style: TextStyle(
+              color: Color(0xFF1E2D59),
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
           ),
-          child: Text("View All", style: TextStyle(fontSize: 13)),
+          Spacer(),
+          Container(
+            height: 50,
+            width: 105,
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              color: Color.fromARGB(255, 231, 240, 251),
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 0.2),
+                  blurRadius: 0.8,
+                  spreadRadius: 0,
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("View All"),
+                SizedBox(width: 3),
+                Icon(Icons.keyboard_arrow_right),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTransaction() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          height: 80,
+          width: double.infinity,
+          padding: EdgeInsets.all(18),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0, 4),
+                blurRadius: 10,
+                spreadRadius: 0,
+                color: Colors.black12,
+              ),
+            ],
+          ),
         ),
       ],
     );
