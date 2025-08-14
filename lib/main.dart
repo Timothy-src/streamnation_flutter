@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:streamnation_flutter/screens/dashboard_screen.dart';
-import 'package:streamnation_flutter/screens/home_screen.dart';
+import 'package:streamnation_flutter/screens/landing_screen.dart';
 import 'screens/signup_screen.dart';
 
 final Logger log = Logger('MyApp');
