@@ -241,7 +241,7 @@ class _ShopScreenState extends State<ShopScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          height: 320,
+          height: 340,
           width: 180,
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -256,11 +256,127 @@ class _ShopScreenState extends State<ShopScreen> {
               ),
             ],
           ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                height: 140,
+                alignment: Alignment.topCenter,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: Color.fromARGB(255, 231, 240, 251),
+                ),
+                padding: EdgeInsets.all(14),
+                child: Image.asset(
+                  "assets/streamnation-icon.png",
+                  height: 120,
+                  width: 120,
+                ),
+              ),
+              SizedBox(height: 20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 25,
+                        width: 100,
+                        padding: EdgeInsets.all(6.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(7),
+                          color: Color.fromARGB(255, 231, 240, 251),
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.star,
+                              size: 13,
+                              color: Color(0xFF1E2D59),
+                            ),
+                            SizedBox(width: 3),
+                            Text(
+                              "BEST SELLER",
+                              style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.w600,
+                                color: Color(0xFF1E2D59),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 6),
+                  Text(
+                    "INTRO PRICE: FINA",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF1E2D59),
+                    ),
+                  ),
+                  Text(
+                    "Brightening Day Kit",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF1E2D59),
+                    ),
+                  ),
+                  Text(
+                    "Set",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF1E2D59),
+                    ),
+                  ),
+                  SizedBox(height: 24),
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "₱499.00",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF1E2D59),
+                            ),
+                          ),
+                          SizedBox(height: 3),
+                          Text(
+                            "95 in stock",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 11,
+                              color: const Color.fromARGB(255, 37, 132, 86),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Spacer(),
+                      Container(
+                        padding: EdgeInsets.all(3),
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Color(0xFF1E2D59),
+                        ),
+                        child: Icon(Icons.add, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
         Spacer(),
-
         Container(
-          height: 320,
+          height: 340,
           width: 180,
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -272,6 +388,125 @@ class _ShopScreenState extends State<ShopScreen> {
                 color: Colors.black.withOpacity(0.1),
                 blurRadius: 6,
                 spreadRadius: 0,
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                height: 140,
+                alignment: Alignment.topCenter,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: Color.fromARGB(255, 231, 240, 251),
+                ),
+                padding: EdgeInsets.all(14),
+                child: Image.asset(
+                  "assets/streamnation-icon.png",
+                  height: 120,
+                  width: 120,
+                ),
+              ),
+              SizedBox(height: 20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 25,
+                        width: 100,
+                        padding: EdgeInsets.all(6.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(7),
+                          color: Color.fromARGB(255, 231, 240, 251),
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(Icons.star, size: 13),
+                            SizedBox(width: 3),
+                            Text(
+                              "BEST SELLER",
+                              style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.w600,
+                                color: Color(0xFF1E2D59),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 6),
+                  Text(
+                    "Fina Beauty",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF1E2D59),
+                    ),
+                  ),
+                  Text(
+                    "Brightening &",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF1E2D59),
+                    ),
+                  ),
+                  Text(
+                    "Clarifying Facial",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF1E2D59),
+                    ),
+                  ),
+                  Text(
+                    "Cleanser (100g)",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF1E2D59),
+                    ),
+                  ),
+                  SizedBox(height: 3),
+                  Row(
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            "₱100.00",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF1E2D59),
+                            ),
+                          ),
+                          SizedBox(height: 3),
+                          Text(
+                            "1 in stock",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 11,
+                              color: Colors.amber,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Spacer(),
+                      Container(
+                        padding: EdgeInsets.all(3.0),
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Color(0xFF1E2D59),
+                        ),
+                        child: Icon(Icons.add, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ],
           ),

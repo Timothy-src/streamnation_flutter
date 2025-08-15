@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:streamnation_flutter/presentations/landing/tabs/home_screen.dart';
+import 'package:streamnation_flutter/presentations/landing/tabs/recruits_screen.dart';
 import 'package:streamnation_flutter/presentations/landing/tabs/shop_screen.dart';
 import 'package:streamnation_flutter/presentations/landing/tabs/wallet_screen.dart';
 
@@ -17,7 +18,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     HomeScreen(),
     ShopScreen(),
     WalletScreen(),
-    Center(child: Text("Recruits page coming soon")),
+    RecruitScreen(),
     Center(child: Text("Marketing page coming soon")),
   ];
 

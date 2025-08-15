@@ -22,10 +22,12 @@ class _WalletScreenState extends State<WalletScreen> {
                 _buildHeader(),
                 const SizedBox(height: 24),
                 _buildAvailableBalance(),
-                SizedBox(height: 28),
+                const SizedBox(height: 15),
                 _buildTransactionText(),
                 const SizedBox(height: 8),
                 _buildTransaction(),
+                const SizedBox(height: 40),
+                _buildPendingPayout(),
               ],
             ),
           ),
@@ -89,7 +91,12 @@ class _WalletScreenState extends State<WalletScreen> {
             borderRadius: BorderRadius.circular(18),
             color: Color(0xFF1E2D59),
             boxShadow: [
-              BoxShadow(offset: Offset(0, 1), spreadRadius: 0, blurRadius: 1),
+              BoxShadow(
+                offset: Offset(0, 4),
+                spreadRadius: 0,
+                blurRadius: 10,
+                color: Colors.black12,
+              ),
             ],
           ),
           child: Column(
@@ -193,7 +200,7 @@ class _WalletScreenState extends State<WalletScreen> {
             style: TextStyle(
               color: Color(0xFF1E2D59),
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 19,
             ),
           ),
           Spacer(),
@@ -206,9 +213,10 @@ class _WalletScreenState extends State<WalletScreen> {
               color: Color.fromARGB(255, 231, 240, 251),
               boxShadow: [
                 BoxShadow(
-                  offset: Offset(0, 0.2),
-                  blurRadius: 0.8,
+                  offset: Offset(0, 4),
+                  blurRadius: 10,
                   spreadRadius: 0,
+                  color: Colors.black12,
                 ),
               ],
             ),
@@ -231,7 +239,7 @@ class _WalletScreenState extends State<WalletScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: 80,
+          height: 70,
           width: double.infinity,
           padding: EdgeInsets.all(18),
           decoration: BoxDecoration(
@@ -246,6 +254,71 @@ class _WalletScreenState extends State<WalletScreen> {
               ),
             ],
           ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "No Transactions Available",
+                style: TextStyle(
+                  color: Color(0xFF1E2D59),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPendingPayout() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Pending Payouts",
+          style: TextStyle(
+            color: Color(0xFF1E2D59),
+            fontWeight: FontWeight.bold,
+            fontSize: 19,
+          ),
+        ),
+        SizedBox(height: 16),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 70,
+              width: double.infinity,
+              padding: EdgeInsets.all(18),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(14),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0, 4),
+                    blurRadius: 10,
+                    spreadRadius: 0,
+                    color: Colors.black12,
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "No Pending Payouts",
+                    style: TextStyle(
+                      color: Color(0xFF1E2D59),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ],
     );
