@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RecruitScreen extends StatefulWidget {
   const RecruitScreen({super.key});
@@ -312,6 +313,130 @@ class _RecruitScreenState extends State<RecruitScreen> {
   }
 
   Widget _buildTopPerformers() {
-    return Container();
+    return Container(
+      height: 210,
+      width: double.infinity,
+      padding: EdgeInsets.all(19.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0, 4),
+            spreadRadius: 0,
+            blurRadius: 10,
+            color: Colors.black12,
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text(
+                "Top performers",
+                style: TextStyle(
+                  color: Color(0xFF1E2D59),
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Spacer(),
+              Container(
+                height: 30,
+                width: 95,
+                padding: EdgeInsets.all(5.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Color.fromARGB(255, 231, 240, 251),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(0, 4),
+                      spreadRadius: 0,
+                      blurRadius: 10,
+                      color: Colors.black12,
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Show More",
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Spacer(),
+                    Icon(Icons.keyboard_arrow_right, size: 21),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    height: 38,
+                    width: 38,
+                    padding: EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      gradient: LinearGradient(
+                        colors: [Color(0xFFD2D4AC), Color(0xFFDFC6C1)],
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("1", style: TextStyle(color: Colors.white)),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 20),
+                  FaIcon(FontAwesomeIcons.solidCircleUser, size: 42),
+                  SizedBox(width: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Tester FD02",
+                        style: TextStyle(
+                          color: Color(0xFF1E2D59),
+                          fontWeight: FontWeight.w800,
+                          fontSize: 16,
+                        ),
+                      ),
+                      Text(
+                        "₱11,904.00 sales",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: Colors.grey[500],
+                          fontSize: 13,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Spacer(),
+                  FaIcon(
+                    FontAwesomeIcons.trophy,
+                    color: Color(0xFFD2D4AC),
+                    size: 19,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
